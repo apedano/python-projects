@@ -2,9 +2,6 @@ from guess_words.word_checker import WordChecker
 from guess_words.commons import CheckResult
 
 
-
-
-
 def test_correct_word():
     word_to_guess = "principe"
     word_checker: WordChecker = WordChecker(word_to_guess)

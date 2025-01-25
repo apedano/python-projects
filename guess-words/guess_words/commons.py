@@ -8,6 +8,9 @@ class WordsGameException(Exception):
 
 @dataclass
 class CheckResult:
-    wrong_position_chars = set()
-    wrong_chars = set()
-    word: string = ""
+
+    def __init__(self):
+        self.wrong_position_chars = set([])
+        self.wrong_chars = set([])
+        self.word: string = ""
+

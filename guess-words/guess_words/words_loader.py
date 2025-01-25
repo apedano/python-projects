@@ -1,4 +1,6 @@
 import os
+import random
+
 from guess_words.commons import words_length, WordsGameException
 
 
@@ -9,10 +11,16 @@ class WordsLoader:
         if not os.path.isfile(filename):
             raise WordsGameException("Given words file [{}] is not a valid file".format(filename))
 
-    def load(self):
+    def choose_random_word(self):
+        words = self.__load()
+        # pick a random element from a list of strings.
+        return random.choice(words)
+
+    def __load(self):
         with open(self.__filename) as words_file:
             words = [line.rstrip('\n') for line in words_file]
-            return self.__validate(words)
+            self.__validate(words)
+            return words
 
     def __validate(self, words):
         if len(words) == 0:
